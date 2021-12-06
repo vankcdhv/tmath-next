@@ -24,7 +24,7 @@ const MobileMenuList: React.FC = () =>  {
       <div onClick={() => setIsShowSideBar(!isShowSideBar)} className={'btn-menu float-right'}>
         <AiOutlineMenu color={'white'} />
       </div>
-      <div hidden={!isShowSideBar} className={'right-side-bar'}>
+      <div style={{transform:isShowSideBar ? 'translateX(0%)' : 'translateX(100%)'}} className={'right-side-bar'}>
         <div className={'title'}>
           TMath
         </div>
