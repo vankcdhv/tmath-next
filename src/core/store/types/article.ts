@@ -1,0 +1,5 @@
+export const FETCH_HOT_NEWS = 'FETCH_HOT_NEWS';
+export const FETCH_INTRODUCE = 'FETCH_INTRODUCE';
+export const FETCH_LECTURE = 'FETCH_LECTURE';
+export const FETCH_STUDENT = 'FETCH_STUDENT';
+export const FETCH_COURSE = 'FETCH_COURSE';

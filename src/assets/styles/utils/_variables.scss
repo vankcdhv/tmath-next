@@ -1,0 +1,36 @@
+// Grid
+$sm: 576px !default;
+$md: 720px !default;
+$lg: 1025px !default;
+$xl: 1200px !default;
+$grid-columns: 12 !default;
+$grid-breakpoints: (
+        xs: 0,
+        lg: $lg
+) !default;
+$grid-gutter-widths: (
+        xs: 16px,
+        lg: 30px
+) !default;
+$container-max-widths: (
+        xs: 600px,
+        lg: 1170px
+) !default;
+$container-fluid-max-widths: (
+        xs: 600px,
+        lg: none,
+) !default;
+$grid-gutter-container: (
+        xs: 32px,
+        lg: 30px
+) !default;
+$grid-gutter-fluid: (
+        xs: 0,
+        lg: 0
+) !default;
+
+// Color system
+$white: #ffffff !default;
+$black: #000000 !default;
+$primary-color: #5C4735;
+$background-color: #5C4735;

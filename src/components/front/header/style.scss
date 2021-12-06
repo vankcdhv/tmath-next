@@ -1,0 +1,114 @@
+@import "assets/styles/utils/all";
+
+.header {
+  padding: 16px 10% 0 10%;
+  position: relative;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/tmathlanding.appspot.com/o/images%2Fbanner%2Fbackground.jpg?alt=media&token=69064f06-fab5-49c3-8911-68ddc419ab3b");
+  background-size: cover;
+  background-position-y: bottom;
+  min-height: 300px;
+  @include media-breakpoint-up(lg) {
+    min-height: 700px;
+  }
+  &--navigator {
+    display: flex;
+    align-items: center;
+    .menu-list {
+      &__desktop {
+        margin-left: auto;
+        margin-right: 0;
+        .menu-link {
+          text-decoration: none;
+          color: #fff;
+          font-weight: 700;
+          font-size: 24px;
+          margin: 0 10px;
+        }
+      }
+      &__mobile {
+        margin-left: auto;
+        margin-right: 0;
+        .right-side-bar{
+          background-color: $background-color;
+          width: 50%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          right: 0;
+          padding: 10px;
+          .title {
+            text-align: right;
+            color: white;
+            font-weight: bold;
+          }
+          .menu-link {
+            text-align: right;
+            text-decoration: none;
+            color: #fff;
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
+
+  &--logo {
+    display: flex;
+    align-items: center;
+    img {
+      height: 46px;
+    }
+    div {
+      margin-left: 8px;
+      color: white;
+      font-weight: 700;
+      font-size: 30px;
+    }
+  }
+  &--introduce {
+    margin-top: 5%;
+    @include media-breakpoint-up(lg) {
+      margin-top: 10%;
+    }
+    .name {
+      color: #fff;
+    }
+    .sologan {
+      color: #fff;
+      font-weight: 700;
+      font-size: 20px;
+      @include media-breakpoint-up(lg) {
+        width: 30%;
+        font-size: 50px;
+      }
+    }
+  }
+
+  .btn-explore {
+    background-color: $primary-color;
+    width: fit-content;
+    padding: 0 12px 0 12px;
+    color: white;
+  }
+  .hot-new {
+    color: white;
+    background-color: $primary-color;
+    width: 40%;
+    margin-left: auto;
+    @include media-breakpoint-up(lg) {
+      width: 30%;
+    }
+
+    img {
+      height: auto;
+      width: 30%;
+      border-radius: 10px;
+      margin-left: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}

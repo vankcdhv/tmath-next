@@ -1,0 +1,1 @@
+export const FETCH_MENU_LIST = 'FETCH_MENU_LIST';

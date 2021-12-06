@@ -1,0 +1,230 @@
+@import "../../assets/styles/utils/all";
+
+.dashboard {
+  background-color: #bd9777;
+
+  &__sidebar {
+    background-color: #5c4735;
+    width: 20%;
+    border-radius: 5px;
+    margin: 2% 0 2% 5%;
+
+    .title {
+      color: white;
+    }
+
+    .item {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: white;
+      text-decoration: none;
+      filter: brightness(0.5);
+
+      &--active {
+        filter: brightness(1);
+      }
+    }
+  }
+
+  &__content {
+    background-color: antiquewhite;
+    width: 80%;
+    border-radius: 5px;
+    margin: 2% 5% 2% 8px;
+    overflow: scroll;
+  }
+
+  .menu {
+    &__title {
+      color: black;
+      font-weight: bold;
+    }
+
+    &__btn-add {
+      background-color: $primary-color;
+      color: $white;
+      width: 100px;
+      margin-left: auto;
+      margin-right: 24px;
+    }
+
+    &__btn-edit {
+      background-color: green;
+      color: $white;
+      width: 100px;
+      margin-left: auto;
+      margin-right: 8px;
+    }
+
+    &__btn-delete {
+      background-color: red;
+      color: $white;
+      width: 100px;
+      margin-left: auto;
+      margin-right: 8px;
+    }
+
+    .menu-item {
+      &__bounder {
+        background-color: #e1d3c1;
+        margin: 8px 8px 8px 8px;
+        border-radius: 5px;
+        padding: 8px;
+
+        table {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .article {
+    &__title {
+      color: black;
+      font-weight: bold;
+    }
+
+    &__btn-add {
+      background-color: $primary-color;
+      color: $white;
+      width: 100px;
+      margin-left: auto;
+      margin-right: 24px;
+    }
+
+    &__btn-edit {
+      background-color: green;
+      color: $white;
+      width: 100px;
+      margin-left: auto;
+      margin-right: 8px;
+    }
+
+    &__btn-delete {
+      background-color: red;
+      color: $white;
+      width: 100px;
+      margin-left: auto;
+      margin-right: 8px;
+    }
+
+    .article-item {
+      &__bounder {
+        background-color: #e1d3c1;
+        margin: 8px 8px 8px 8px;
+        border-radius: 5px;
+        padding: 8px;
+
+        table {
+          width: 100%;
+        }
+      }
+
+      &__image {
+        width: 200px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.modal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: .5;
+  }
+
+  &__wrapper {
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+  }
+
+  &__container {
+    background-color: white;
+    height: fit-content;
+    width: 60%;
+    max-height: 80%;
+    border-radius: 10px;
+    overflow: scroll;
+  }
+
+  &__header {
+    display: flex;
+    border-bottom: 1px solid black;
+    align-items: center;
+    padding: 8px;
+    height: 10%;
+  }
+
+  &__content {
+    height: 90%;
+  }
+
+  &__data {
+    text-align: -webkit-center;
+    padding-top: 24px;
+  }
+
+  &__action {
+
+  }
+
+  &__image {
+    width: 300px;
+    border-radius: 5px;
+    &--close {
+      right: 16px;
+      top: 8px;
+    }
+  }
+
+  &__btn-add-image {
+    background-color: $primary-color;
+    color: $white;
+    width: fit-content;
+    margin-left: 8px;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  &__btn-add {
+    background-color: $primary-color;
+    color: $white;
+    width: 100px;
+    margin-left: auto;
+    margin-right: 24px;
+  }
+
+  &__btn-edit {
+    background-color: green;
+    color: $white;
+    width: 50px;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  &__btn-delete {
+    background-color: red;
+    color: $white;
+    width: 50px;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+}

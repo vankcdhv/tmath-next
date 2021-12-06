@@ -1,0 +1,54 @@
+@import "assets/styles/utils/all";
+.introduce {
+  &__container {
+    width: 100%;
+    @include media-breakpoint-up(lg) {
+      width: 50%;
+    }
+  }
+
+  &__title {
+    color: $primary-color;
+    font-size: 34px;
+    width: 80%;
+  }
+
+  &__content {
+    color: $primary-color;
+    width: 80%;
+  }
+
+  &__btn-register {
+    background-color: $primary-color;
+    width: fit-content;
+    padding: 0 12px 0 12px;
+    color: white;
+  }
+
+  &__image {
+    width: 100%;
+    @include media-breakpoint-up(lg) {
+      width: 50%;
+    }
+
+    img {
+      border-radius: 4px;
+    }
+
+    &--primary {
+      height: 80%;
+      width: 100%;
+      @include media-breakpoint-up(lg) {
+        height: 400px;
+      }
+    }
+
+    &--second {
+      height: 70%;
+      width: 100%;
+      @include media-breakpoint-up(lg) {
+        height: 350px;
+      }
+    }
+  }
+}
