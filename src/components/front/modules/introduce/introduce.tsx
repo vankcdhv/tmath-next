@@ -27,7 +27,7 @@ const Introduce: React.FC = () => {
               {introduce.length > 0 ? introduce[0].content : ''}
             </div>
             <div>
-              <div className="t-button mt24 introduce__btn-register">
+              <div onClick={() => window.location.href=introduce[0].url || '/'} className="t-button mt24 introduce__btn-register">
                 <span>Đăng ký khóa học</span>
               </div>
             </div>

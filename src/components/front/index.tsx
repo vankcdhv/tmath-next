@@ -8,6 +8,10 @@ import Student from './modules/student/student';
 import Lecture from './modules/lecture/lecture';
 import Course from './modules/course/course';
 import Footer from './modules/footer/foot';
+import { Routes } from 'react-router-dom';
+import {Route} from 'react-router';
+import ArticleDetail from './articleDetail';
+import ArticleList from './articleList';
 
 const Front: React.FC = () => {
   const rootState = useAppSelector(state => state);
@@ -29,21 +33,29 @@ const Front: React.FC = () => {
   return (
     <div className={'front'}>
       <Header />
-      <Introduce />
-      <div className="mt24 pos-relative primary-content d-flex d-flex-wrap">
-        <div className="w-100">
-          <div className="text-bold w-100 text-align-center">
-            HỆ THỐNG GIẢNG DẠY PHONG PHÚ
+      <Routes>
+        <Route path={'/'} element={<div>
+          <Introduce />
+          <div className="mt24 pos-relative primary-content d-flex d-flex-wrap">
+            <div className="w-100">
+              <div className="text-bold w-100 text-align-center">
+                            HỆ THỐNG GIẢNG DẠY PHONG PHÚ
+              </div>
+              <div className="text-align-center">
+                <img className="method__image mt24" src="https://firebasestorage.googleapis.com/v0/b/tmathlanding.appspot.com/o/images%2Fothers%2Fdiscover01.jpg?alt=media&token=74121d92-d61b-40e6-ac59-4a686e136b80" alt=""/>
+              </div>
+            </div>
           </div>
-          <div className="text-align-center">
-            <img className="method__image mt24" src="https://firebasestorage.googleapis.com/v0/b/tmathlanding.appspot.com/o/images%2Fothers%2Fdiscover01.jpg?alt=media&token=74121d92-d61b-40e6-ac59-4a686e136b80" alt=""/>
-          </div>
-        </div>
-      </div>
-      <Lecture />
-      <Student />
-      <Course />
+          <Lecture />
+          <Student />
+          <Course />
+        </div>} />
+        <Route path="/posts" element={<ArticleList />} />
+        <Route path="/post/:type/:postID" element={<ArticleDetail/>}/>
+      </Routes>
       <Footer />
+
+
       <div className="zalo-chat-widget" data-oaid="3298019303629189114"
         data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="5" data-width=""
         data-height=""/>

@@ -18,7 +18,9 @@ const Footer: React.FC = () => {
         </a>
       </div>
       <div className={'ml-auto mr4 d-flex item-align-center'}>
-        <img src={'Tmath_logo.png'} alt={'Tmath - Coding Academy'}/>
+        <div>
+          <img src={'/Tmath_logo.png'} alt={'Tmath - Coding Academy'}/>
+        </div>
         <div className={'mt8'}>
           <p className={'text-bold'}>Tmath - Coding Academy</p>
           <p>Nơi nuôi dưỡng và đào tạo tài năng trẻ</p>

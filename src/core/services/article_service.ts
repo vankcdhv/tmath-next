@@ -11,6 +11,11 @@ export const getArticleByType = async (type: string) => {
   return response.map(item => ({...item, type: type}));
 };
 
+export const getArticleById = async (type: string, id: string) => {
+  const response = (await Firebase.getDocument(COLLECTION_ARTICLE + '/' + type + '/' + type, id));
+  return response;
+};
+
 export const addArticle = async (article: Article, type: string) => {
   return (await Firebase.addDocument(article, COLLECTION_ARTICLE + '/' + type + '/' + type));
 };

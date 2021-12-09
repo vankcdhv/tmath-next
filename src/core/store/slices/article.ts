@@ -1,10 +1,17 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {FETCH_COURSE, FETCH_HOT_NEWS, FETCH_INTRODUCE, FETCH_LECTURE, FETCH_STUDENT} from '../types/article';
+import {
+  FETCH_COURSE,
+  FETCH_HOT_NEWS,
+  FETCH_INTRODUCE,
+  FETCH_LECTURE,
+  FETCH_OTHER,
+  FETCH_STUDENT
+} from '../types/article';
 import {
   ARTICLE_TYPE_COURSE,
   ARTICLE_TYPE_HOT,
   ARTICLE_TYPE_INTRODUCE,
-  ARTICLE_TYPE_LECTURE,
+  ARTICLE_TYPE_LECTURE, ARTICLE_TYPE_OTHER,
   ARTICLE_TYPE_STUDENT
 } from 'core/utils/const';
 import {getArticleByType} from 'core/services/article_service';
@@ -16,12 +23,14 @@ interface ArticleState{
   lectureFetched: boolean,
   studentFetched: boolean,
   courseFetched: boolean,
+  otherFetched: boolean,
   error: string,
   hotNews: Array<Article>
   introduces: Array<Article>
   lectures: Array<Article>
   students: Array<Article>
   courses: Array<Article>
+  others: Array<Article>
 }
 // Define the initial state using that type
 const initialState: ArticleState = {
@@ -30,12 +39,14 @@ const initialState: ArticleState = {
   lectureFetched: false,
   studentFetched: false,
   courseFetched: false,
+  otherFetched: false,
   error: '',
   hotNews: [],
   introduces: [],
   lectures: [],
   students: [],
   courses: [],
+  others: [],
 };
 
 export const fetchHotNews = createAsyncThunk(FETCH_HOT_NEWS, async ()=>{
@@ -53,6 +64,9 @@ export const fetchStudents = createAsyncThunk(FETCH_STUDENT, async ()=>{
 });
 export const fetchCourse = createAsyncThunk(FETCH_COURSE, async ()=>{
   return await getArticleByType(ARTICLE_TYPE_COURSE);
+});
+export const fetchOther = createAsyncThunk(FETCH_OTHER, async ()=>{
+  return await getArticleByType(ARTICLE_TYPE_OTHER);
 });
 
 export const articleSlice = createSlice({
@@ -124,6 +138,19 @@ export const articleSlice = createSlice({
       state.courseFetched = true;
       state.error = '';
       state.courses = action.payload;
+    },
+    [fetchOther.pending.type]: (state: ArticleState)=>{
+      state.otherFetched = false;
+    },
+    [fetchOther.rejected.type]: (state: ArticleState, action: { error: string; })=>{
+      state.otherFetched = true;
+      state.error = action.error;
+      state.others = [];
+    },
+    [fetchOther.fulfilled.type]: (state: ArticleState, action: { payload: Article[]; })=>{
+      state.otherFetched = true;
+      state.error = '';
+      state.others = action.payload;
     },
   },
 });

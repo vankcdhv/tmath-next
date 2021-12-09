@@ -25,7 +25,7 @@ const Course: React.FC = () => {
               CÁC KHÓA HỌC LẬP TRÌNH TẠI TMATH CODING
             </div>
             <div className="h-100 d-flex mt24 d-flex-wrap">
-              {courses.map(item => <ImageCard customeClass={'mr12'} key={item.id} title={item.title} url={item.url} content={item.content} image={item.image[0]} />)}
+              {courses.map(item => <ImageCard customeClass={'mr12'} key={item.id} title={item.title} url={item.url || '/post/' + item.type + '/' + item.id} content={item.content} image={item.image[0]} />)}
             </div>
           </div>
         </div> : <div/>

@@ -6,5 +6,6 @@ export const ARTICLE_TYPE_LECTURE = 'lecture';
 export const ARTICLE_TYPE_INTRODUCE = 'introduce';
 export const ARTICLE_TYPE_STUDENT = 'student';
 export const ARTICLE_TYPE_COURSE = 'course';
+export const ARTICLE_TYPE_OTHER = 'other';
 
 export const COLLECTION_USER = 'users';

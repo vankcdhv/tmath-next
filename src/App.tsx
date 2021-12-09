@@ -12,7 +12,7 @@ const App: React.FC = ()=> {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Front/>}/>
+        <Route path="/*" element={<Front/>}/>
         <Route path="/login" element={<SignInScreen />} />
         <Route path="/admin/*" element={isLoggedIn ? <Admin/> : <SignInScreen/>}/>
       </Routes>

@@ -5,7 +5,8 @@ import {
   ARTICLE_TYPE_HOT,
   ARTICLE_TYPE_INTRODUCE,
   ARTICLE_TYPE_LECTURE,
-  ARTICLE_TYPE_STUDENT
+  ARTICLE_TYPE_STUDENT,
+  ARTICLE_TYPE_OTHER
 } from 'core/utils/const';
 import {Article} from 'core/store/defines/article';
 interface defineProp{
@@ -28,6 +29,8 @@ const ArticleCollection = (props: defineProp) => {
         return 'Bài viết vinh danh học sinh';
       case ARTICLE_TYPE_COURSE:
         return 'Bài viết giới thiệu khóa học';
+      case ARTICLE_TYPE_OTHER:
+        return 'Bài viết khác';
       default:
         return '';
     }

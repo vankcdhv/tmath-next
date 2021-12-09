@@ -47,7 +47,7 @@ const Header: React.FC = () => {
         <div className="card hot-new d-flex mt24 p8 item-align-center">
           <div>
             <div className="mb8">{articleState.hotNews[0].title}</div>
-            <a href={articleState.hotNews[0].url}>
+            <a href={articleState.hotNews[0].url || '/post/'+ articleState.hotNews[0].type + '/' + articleState.hotNews[0].id}>
                 More
               <AiOutlineArrowRight className="ml4"/>
             </a>

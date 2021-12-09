@@ -2,7 +2,7 @@
 import firebase from 'firebase/compat/app';
 
 
-import {addDoc, collection, deleteDoc, doc, getDocs, getFirestore, setDoc} from 'firebase/firestore';
+import {addDoc, collection, deleteDoc, doc, getDocs, getFirestore, setDoc, getDoc} from 'firebase/firestore';
 import {Menu} from 'core/store/defines/menu';
 import { Article } from 'core/store/defines/article';
 import {User} from 'core/store/defines/auth';
@@ -34,6 +34,12 @@ const getCollections = async (collectionName: string) => {
   });
 };
 
+const getDocument = async (collectionName: string, docId: string) => {
+  const docRef = doc(dbContext, collectionName, docId);
+  const data = await getDoc(docRef);
+  return data.data();
+};
+
 const addDocument = async (docData: Menu | Article | User, collectionName: string) => {
   const collectionRef = collection(dbContext, collectionName);
   const docRef = await addDoc(collectionRef, docData);
@@ -53,4 +59,4 @@ const deleteDocument = async (docId: string, collectionName: string) => {
   console.log('Document deleted', docRef);
 };
 
-export {getCollections, addDocument, setDocument, deleteDocument};
+export {getCollections, addDocument, setDocument, deleteDocument, getDocument};

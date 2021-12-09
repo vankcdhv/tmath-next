@@ -8,7 +8,7 @@ import {
   ARTICLE_TYPE_COURSE,
   ARTICLE_TYPE_HOT,
   ARTICLE_TYPE_INTRODUCE,
-  ARTICLE_TYPE_LECTURE,
+  ARTICLE_TYPE_LECTURE, ARTICLE_TYPE_OTHER,
   ARTICLE_TYPE_STUDENT
 } from 'core/utils/const';
 import {cloneDeep} from 'core/utils/common';
@@ -25,12 +25,12 @@ interface propDefine {
 }
 const ModalCUD = (props: propDefine) => {
   const {isShowing, item, mode, onCloseModal} = props;
-  const [data, setData] = useState<Article>({type: '', content: '', id: '', image: [], title: '', url: ''});
+  const [data, setData] = useState<Article>({detail: '', type: '', content: '', id: '', image: [], title: '', url: ''});
   useEffect(() => {
     if (item) {
       setData(cloneDeep(item));
     } else {
-      setData({type: '', content: '', id: '', image: [], url: '',  title: ''});
+      setData({detail: '', type: '', content: '', id: '', image: [], url: '',  title: ''});
     }
   }, [item]);
   const inputFile = useRef(null);
@@ -40,6 +40,7 @@ const ModalCUD = (props: propDefine) => {
     {value: ARTICLE_TYPE_LECTURE, label: 'Bài viết giới thiệu giảng viên'},
     {value: ARTICLE_TYPE_STUDENT, label: 'Bài viết vinh danh học sinh'},
     {value: ARTICLE_TYPE_COURSE, label: 'Bài viết giới thiệu khóa học'},
+    {value: ARTICLE_TYPE_OTHER, label: 'Bài viết khác'},
   ];
   const getTitle = (mode:string) => {
     switch (mode) {
@@ -88,6 +89,7 @@ const ModalCUD = (props: propDefine) => {
       title: data.title || '',
       url: data.url || '',
       content: data.content || '',
+      detail: data.detail || '',
       image: data.image || '',
 
     };
@@ -97,11 +99,12 @@ const ModalCUD = (props: propDefine) => {
   const editArticle = async () => {
     const menu:Article = {
       id: data.id,
-      title: data.title,
-      content: data.content,
-      url: data.url,
-      image: data.image,
-      type: data.type,
+      title: data.title || '',
+      content: data.content || '',
+      detail: data.detail || '',
+      url: data.url || '',
+      image: data.image || [],
+      type: data.type || '',
     };
     await ArticleService.setArticle(menu, data.id, data.type);
     onCloseModal(true);
@@ -186,7 +189,21 @@ const ModalCUD = (props: propDefine) => {
                   </tr>
                   <tr>
                     <td>
-                                            Hình ảnh
+                      Chi tiết
+                    </td>
+                    <td className={'d-flex'}>
+                      <textarea className={'w-100'}
+                        rows={10}
+                        onChange={event => setData({
+                          ...data,
+                          detail: event.target.value
+                        })}
+                        value={data?.detail}/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Hình ảnh
                     </td>
                     <td className={'d-flex'}>
                       {(data?.image || []).map((item, index) => (

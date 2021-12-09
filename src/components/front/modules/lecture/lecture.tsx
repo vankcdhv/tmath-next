@@ -26,7 +26,7 @@ const Lecture: React.FC = () => {
                 ĐỘI NGŨ GIẢNG VIÊN CHUYÊN NGHIỆP
             </div>
             <div className="h-100 d-flex mt24 d-flex-wrap">
-              {lectures.map(item => <ImageCard customeClass={'mr12'} key={item.id} title={item.title} url={item.url} content={item.content} image={item.image[0]} />)}
+              {lectures.map(item => <ImageCard customeClass={'mr12'} key={item.id} title={item.title} url={item.url || '/post/' + item.type + '/' + item.id} content={item.content} image={item.image[0]} />)}
             </div>
           </div>
         </div> : <div/>
